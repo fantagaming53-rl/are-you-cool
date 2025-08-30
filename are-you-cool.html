@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Are you cool?</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #fff;">
+  <div style="text-align: center;">
+    <div id="answer" style="font-size:2em; margin-bottom: 1em;">Are you cool?</div>
+    <button id="findOutBtn">Find out</button>
+    <div id="link"></div>
+  </div>
+  <script>
+    // Randomly choose 'Yes' or 'No' on page load
+    const randomAnswer = Math.random() < 0.5 ? "Yes" : "No";
+    const answerDiv = document.getElementById('answer');
+    const button = document.getElementById('findOutBtn');
+    const linkDiv = document.getElementById('link');
+    let revealed = false;
+
+    button.onclick = function() {
+      if (!revealed) {
+        answerDiv.textContent = randomAnswer;
+        button.style.display = "none";
+        if (randomAnswer === "No") {
+          linkDiv.innerHTML = `<a href="https://www.youtube.com/watch?v=FyvsjaLpthU" target="_blank" rel="noopener">Watch this</a>`;
+        }
+        revealed = true;
+      }
+    };
+  </script>
+</body>
+</html>
